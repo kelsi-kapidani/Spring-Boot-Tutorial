@@ -2,7 +2,10 @@ package com.example;
 
 import java.util.Objects;
 
+@Entity
 public class SoftwareEngineer {
+
+    @Id
     private Integer id;
     private String name;
     private String techStack;
