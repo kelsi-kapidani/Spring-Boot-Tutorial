@@ -1,0 +1,7 @@
+POST http://localhost:8081/se-list
+Content-Type: application/json
+
+{
+    "name": "Jamilia",
+    "techStack": "java,spring boot"
+}

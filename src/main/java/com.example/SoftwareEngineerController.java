@@ -16,29 +16,29 @@ public class SoftwareEngineerController {
     private final SoftwareEngineerService softwareEngineerService;
 
     public SoftwareEngineerController(SoftwareEngineerService seService) {
-        this.SoftwareEngineerService = seService;
+        this.softwareEngineerService = seService;
     }
 
     @GetMapping
     public List<SoftwareEngineer> getEngineers() {
         return List.of(
-            new SoftwareEngineer(1, "Qamili", "js, node, react, tailwindcss"),
-            new SoftwareEngineer(1, "Kismete", "js, node, react, tailwindcss")
+            new SoftwareEngineer( "Qamili", "js, node, react, tailwindcss"),
+            new SoftwareEngineer( "Kismete", "js, node, react, tailwindcss")
         );
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<SoftwareEngineer> getAllEngineers() {
         return softwareEngineerService.getSoftwareEngineers();
     }
 
-    @GetMapping({"id"})
-    public List<SoftwareEngineer> getEngineerById(@PathVariable Integer id) {
-        return softwareEngineerService.getSoftwareEngineerById();
+    @GetMapping("/{id}")
+    public SoftwareEngineer getEngineerById(@PathVariable Integer id) {
+        return softwareEngineerService.getSoftwareEngineerById(id);
     }
 
     @PostMapping
-    public SoftwareEgnineer addNewSoftwareEngineer(@RequestBody SoftwareEngineer softwareEngineer) {
-        softwareEngineerService.insertSoftwareEngineer(softwareEngineer);
+    public SoftwareEngineer addNewSoftwareEngineer(@RequestBody SoftwareEngineer softwareEngineer) {
+        return softwareEngineerService.insertSoftwareEngineer(softwareEngineer);
     }
 }

@@ -2,20 +2,29 @@ package com.example;
 
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
+
 @Entity
 public class SoftwareEngineer {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    @Column(name = "tech_stack")
     private String techStack;
 
-    public SoftwareEngineer (Integer id, String name, String techStack) {
-        this.id = id;
+    public SoftwareEngineer() {}
+
+    public SoftwareEngineer(String name, String techStack) {
         this.name = name;
         this.techStack = techStack;
     }
-
+    
     public Integer getId() {
         return id;
     }

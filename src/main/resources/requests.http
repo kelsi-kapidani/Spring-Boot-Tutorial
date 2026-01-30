@@ -2,11 +2,14 @@ GET http://localhost:8081
 
 GET http://localhost:8081/se-list
 
+GET http://localhost:8081/se-list/all
+
 GET http://localhost:8081/se-list/1
 
 POST http://localhost:8081/se-list
 Content-Type: application/json
+
 {
-    "name": "Jamilia"
+    "name": "Jamilia",
     "techStack": "java,spring boot"
 }
